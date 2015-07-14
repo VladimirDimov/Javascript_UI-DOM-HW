@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document Object Model</title>
+	<style>
+	fieldset{
+		margin: 25px;
+	}
+	</style>
+</head>
+<body>
+	<fieldset id = 'task-1'>
+		<legend>Task 1</legend>
+		<div class="outer">
+			<p>outer div 1</p>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+		</div>
+		<div class="outer">
+			<p>outer div 2</p>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+			<div class="inner">Inner Div</div>
+		</div>
+	</fieldset>
+	<script type="text/javascript" src="task-1.js"></script>
+	
+	<fieldset id="task-2">
+			<input type="text" id="print-to-console"><input type="button" value="print" onclick="printToConsole()"><br>
+	</fieldset>
+	<script type="text/javascript" src="task-2.js"></script>
+	
+	<fieldset id="task-3">
+		Select body color:
+		<input type="color" name="body-color" onchange="setBodyColor()">
+	</fieldset>
+	<script type="text/javascript" src="task-3.js"></script>
+</body>
+</html>
