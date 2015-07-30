@@ -212,7 +212,7 @@ var NewGame = function() {
     var keyIsPressed = false;
     var snakeStyles = Object.create(Styles).init
     var snake = Object.create(Snake).init(5);
-    var game = Object.create(Game).init(10, 10, snake);
+    var game = Object.create(Game).init(25, 25, snake);
 
     var e = document.addEventListener('keydown', function(event) {
         if (!keyIsPressed) {
