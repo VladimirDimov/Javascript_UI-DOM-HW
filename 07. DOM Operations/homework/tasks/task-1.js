@@ -17,46 +17,34 @@ Create a function that takes an id or DOM element and an array of contents
     * In that case, the content of the element **must not be** changed   
 */
 
-module.exports = function() {
+var contentsCreator = (function() {
 
 	return function(element, contents) {
-		var elem,
-			firstChild,
-			fragment,
-			i,
-			len,
-			newDiv,
-			divToAdd;
-		if (typeof(element) !== 'string' && !(element instanceof HTMLElement)) {
-			throw '';
-		}
-		if (typeof(element) === 'string') {
-			elem = document.getElementById(element)
-		} else {
-			elem = element;
+		if (!(element instanceof(HTMLElement))) {
+			element = document.getElementById(element);
 		}
 
-		if (!contents || contents.some(function(item) {
-				return (typeof(item) !== 'string' && typeof(item) !== 'number');
-			})) {
-			throw '';
+		if (!(element instanceof(HTMLElement))) {
+			throw new Error();
 		}
 
-		firstChild = elem.firstChild;
-		while (elem.firstChild) {
-			elem.removeChild(firstChild);
-			firstChild = firstChild.nextSibling;
+		while (element.firstChild) {
+			element.removeChild(element.firstChild);
 		}
 
-		newDiv = document.createElement('div');
-		fragment = document.createDocumentFragment();
+		var itemContainer = document.createElement('div');
+		itemContainer.className += (' item-container');
 
-		for (i = 0, len = contents.length; i < len; i += 1) {
-			divToAdd = newDiv.cloneNode(true);
-			divToAdd.innerHTML = contents[i];
-			fragment.appendChild(divToAdd);
-		}
-
-		elem.appendChild(fragment);
+		for (var i = 0; i < contents.length; i++) {
+			var currentContentContainer = itemContainer.cloneNode(false);
+			currentContentContainer.innerHTML = contents[i];
+			element.appendChild(currentContentContainer);
+		};
 	};
-};
+}());
+
+contentsCreator('container', ['Hello', 'world!']);
+
+
+debugger;
+module.exports(contentsCreator);
